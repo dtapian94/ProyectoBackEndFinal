@@ -1,0 +1,11 @@
+{
+  "name": "humongous_conn",
+  "connector": "mongodb",
+  "url": "mongodb+srv://usuarioClase:claseVerano2019@pruebasclase-zlei3.mongodb.net/Proyecto_Final?retryWrites=true&w=majority",
+  "host": "pruebasclase-zlei3.mongodb.net",
+  "port": 27017,
+  "user": "usuarioClase",
+  "password": "claseVerano2019",
+  "database": "Proyecto_Final",
+  "useNewUrlParser": true
+}
