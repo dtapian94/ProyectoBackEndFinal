@@ -108,7 +108,9 @@ export class PrestamosController {
     @requestBody() prestamo: Prestamo,
   ): Promise<void> {
     await this.prestamoRepository.updateById(id, prestamo);
-  }
+  } 
+
+// end 
 
   @put('/prestamos/{id}', {
     responses: {

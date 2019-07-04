@@ -1,6 +1,6 @@
-import {repository} from '@loopback/repository';
+import {repository,Filter} from '@loopback/repository';
 import {validateCredentials} from '../services/validator';
-import {post, param, get, requestBody, HttpErrors} from '@loopback/rest';
+import {post, param, get, put, requestBody, HttpErrors, getFilterSchemaFor} from '@loopback/rest';
 import {User} from '../models/user.model';
 import {UserRepository} from '../repositories/user.repository';
 
@@ -97,6 +97,45 @@ export class UserController {
     return currentUserProfile;
   }
 
+//Pruebas
+
+@get('/users', {
+    responses: {
+      '200': {
+        description: 'Array of Usuario model instances',
+        content: {
+          'application/json': {
+            schema: {type: 'array', items: {'x-ts-type': User}},
+          },
+        },
+      },
+    },
+  })
+  async find(
+    @param.query.object('filter', getFilterSchemaFor(User)) filter?: Filter<User>,
+  ): Promise<User[]> {
+    return await this.userRepository.find(filter);
+  }
+
+  /// fin 
+
+  // Pruebas 2
+
+  @put('/users/{userId}', {
+    responses: {
+      '204': {
+        description: 'Usuario PUT success',
+      },
+    },
+  })
+  async replaceById(
+    @param.path.string('userId') id: string,
+    @requestBody() users: User,
+  ): Promise<void> {
+    await this.userRepository.replaceById(id, users);
+  }
+
+  // end
  
 
   @post('/users/login', {
