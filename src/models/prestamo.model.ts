@@ -7,25 +7,25 @@ export class Prestamo extends Entity {
   @property({
     type: 'number',
     id: true,
-    required: true,
+    //required: true,
   })
   id: number;
 
   @property({
     type: 'number',
-    required: true,
+    //required: true,
   })
   cantidad: number;
 
   @property({
     type: 'number',
-    required: true,
+    //required: true,
   })
   plazo: number;
 
   @property({
     type: 'string',
-    required: true,
+    //required: true,
   })
   estatus: string;
 
